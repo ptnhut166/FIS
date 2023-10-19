@@ -3,6 +3,7 @@ from streamlit_option_menu import option_menu
 from vnstock import * 
 from vnstock.chart import *
 
+
 with st.sidebar:
     selected = option_menu("Lựa chọn", ["Thông tin", 'Dự đoán','Bot'], 
         icons=['info-square-fill', 'bar-chart-line-fill','reddit'], menu_icon="cast", default_index=1)
