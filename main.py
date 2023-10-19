@@ -81,8 +81,6 @@ elif selected=="Dự đoán":
     
 
     
-if __name__ == "__main__":
-    main()
 
 elif selected=="Bot":
     st.title("bot")
