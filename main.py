@@ -63,7 +63,7 @@ if selected =="Thông tin":
 elif selected=="Dự đoán":
     st.title("Thông tin cổ phiếu")
 
-    add_selectbox=st.sidebar.selectbox(
+    option=st.selectbox(
     "What Algorithm do you want to use?",
     ("Linear regression", "Logistic regression", "ARIMA","GRU","LSTM", "RNN","SSA"))
 
