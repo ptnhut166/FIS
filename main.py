@@ -75,7 +75,7 @@ elif selected=="Dự đoán":
         st.header("Thông tin tổng quan")
 
         df_his = stock_historical_data(stock_name, "2022-01-01", "2023-10-10", "1D", "stock")
-        st.line_chart(df_his)
+        st.table(df_his)
     else:
         st.text("Không tìm thấy")
         st.error("Xin nhập mã cổ phiếu chính xác")
