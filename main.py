@@ -22,7 +22,7 @@ if selected =="Thông tin":
     if is_in is True:
         st.header("Thông tin tổng quan")
     else:
-        st.text("none")
+        st.text("Không tìm thấy ")
         st.error("Xin nhập mã cổ phiếu chính xác")
         time.sleep(100000)
     
