@@ -94,7 +94,7 @@ elif selected=="Dự đoán":
     ("Linear regression", "Logistic regression", "ARIMA","GRU","LSTM", "RNN","SSA"))
     
     n_days = st.slider('Số ngày dự đoán:', 1, 30)
-    
+        
     
     
 
