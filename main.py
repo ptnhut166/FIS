@@ -2,6 +2,8 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from vnstock import * 
 from vnstock.chart import *
+import datetime
+
 
 with st.sidebar:
     selected = option_menu("Lựa chọn", ["Thông tin", 'Dự đoán','Bot'], 
@@ -67,12 +69,21 @@ elif selected=="Dự đoán":
     stock_name = st.text_input("Nhập tên cổ phiếu:")
     stock_name = stock_name.upper()
         
+
+    today = datetime.datetime.now()
+
+    jan_1 = today - datetime.timedelta(days=30)
+    dec_31 = today
+
+    d = st.date_input("When's your birthday", datetime.date(2019, 7, 6))
+    st.write('Your birthday is:', d)
+
     df = df['ticker']
     is_in = stock_name in df.unique()
     if is_in is True:
         st.header("Giá cổ phiếu")
 
-        df_his = stock_historical_data(stock_name, "2022-01-01", "2023-10-10", "1D", "stock")
+        df_his = stock_historical_data(stock_name, "2022-01-01", datetime.today, "1D", "stock")
         st.line_chart(df_his["close"])
     else:
         st.text("Không tìm thấy")
