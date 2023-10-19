@@ -7,3 +7,4 @@ plotly
 BeautifulSoup4
 streamlit
 streamlit_option_menu
+vnstock
