@@ -65,8 +65,7 @@ elif selected=="Dự đoán":
 
     add_selectbox=st.sidebar.selectbox(
     "What Algorithm do you want to use?",
-    ("Linear regression", "Logistic regression", "ARIMA","GRU","LSTM", "RNN","SSA")
-)
+    ("Linear regression", "Logistic regression", "ARIMA","GRU","LSTM", "RNN","SSA"))
 
     df = listing_companies()
     stock_name = st.text_input("Nhập tên cổ phiếu:")
