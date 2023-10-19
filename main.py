@@ -5,7 +5,7 @@ from vnstock.chart import *
 
 with st.sidebar:
     selected = option_menu("Lựa chọn", ["Thông tin", 'Dự đoán','Bot'], 
-        icons=['info-square-fill', 'bar-chart-line-fill','reddit'], menu_icon="cast", default_index=1)
+        icons=['info-square-fill', 'bar-chart-line-fill','reddit'], menu_icon="justify", default_index=1)
     selected
 #_____________________________________________________________________________________  
 
@@ -89,6 +89,6 @@ elif selected=="Dự đoán":
     
 
 elif selected=="Bot":
-    st.title("bot")
+    st.title("Bot")
 
 
