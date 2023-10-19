@@ -2,8 +2,6 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from vnstock import * 
 from vnstock.chart import *
-from datetime import datetime
-from datetime import date
 
 with st.sidebar:
     selected = option_menu("Lựa chọn", ["Thông tin", 'Dự đoán','Bot'], 
