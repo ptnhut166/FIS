@@ -2,7 +2,8 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from vnstock import * 
 from vnstock.chart import *
-
+from datetime import datetime
+from datetime import date
 
 with st.sidebar:
     selected = option_menu("Lựa chọn", ["Thông tin", 'Dự đoán','Bot'], 
@@ -74,7 +75,7 @@ elif selected=="Dự đoán":
         st.header("Thông tin tổng quan")
 
         df_his = stock_historical_data(stock_name, "2022-01-01", "2023-10-10", "1D", "stock")
-        st.table(df_his)
+        st.line_chart(df_his.Close)
     else:
         st.text("Không tìm thấy")
         st.error("Xin nhập mã cổ phiếu chính xác")
