@@ -79,6 +79,7 @@ elif selected=="Dự đoán":
                         colors=('lightgray', 'gray'), reference_colors=('black', 'blue'))
 
         fig.show()
+        st.pyplot(fig)
     else:
         st.text("none")
         st.error("Xin nhập mã cổ phiếu chính xác")
