@@ -75,7 +75,7 @@ elif selected=="Dự đoán":
     jan_1 = today - datetime.timedelta(days=30)
     dec_31 = today
 
-    d = st.date_input("Nhập ngày bắt đầu", datetime.date(2019, 7, 6))
+    d = st.date_input("Nhập ngày bắt đầu", datetime.date(2020, 1, 1))
 
     df = df['ticker']
     is_in = stock_name in df.unique()
