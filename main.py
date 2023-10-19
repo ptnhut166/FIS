@@ -75,15 +75,14 @@ elif selected=="Dự đoán":
     jan_1 = today - datetime.timedelta(days=30)
     dec_31 = today
 
-    d = st.date_input("When's your birthday", datetime.date(2019, 7, 6))
-    st.write('Your birthday is:', d)
+    d = st.date_input("Nhập ngày bắt đầu", datetime.date(2019, 7, 6))
 
     df = df['ticker']
     is_in = stock_name in df.unique()
     if is_in is True:
         st.header("Giá cổ phiếu")
 
-        df_his = stock_historical_data(stock_name, "2022-01-01", str(date.today()), "1D", "stock")
+        df_his = stock_historical_data(stock_name, str(d), str(date.today()), "1D", "stock")
         st.line_chart(df_his["close"])
     else:
         st.text("Không tìm thấy")
