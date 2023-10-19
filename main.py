@@ -24,7 +24,7 @@ if selected =="Thông tin":
     if is_in is True:
         st.header("Thông tin tổng quan")
     else:
-        st.text("Không tìm thấy ")
+        st.text("Không tìm thấy")
         st.error("Xin nhập mã cổ phiếu chính xác")
         time.sleep(100000)
     
@@ -78,11 +78,9 @@ elif selected=="Dự đoán":
         fig = candlestick_chart(df, ma_periods=[50,200], show_volume=False, reference_period=300, figure_size=(10, 6), 
                         title=stock_name+' - Candlestick Chart with MA and Volume', x_label='Date', y_label='Price', 
                         colors=('lightgray', 'gray'), reference_colors=('black', 'blue'))
-
-        fig.show()
         st.pyplot(fig)
     else:
-        st.text("none")
+        st.text("Không tìm thấy")
         st.error("Xin nhập mã cổ phiếu chính xác")
         time.sleep(100000)
 
