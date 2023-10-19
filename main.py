@@ -12,7 +12,7 @@ with st.sidebar:
 global stock_name
 
 if selected =="Thông tin":
-    st.title("Thông tin")
+    st.title("Thông tin công ty")
     df = listing_companies()
     stock_name = st.text_input("Nhập tên cổ phiếu:")
     stock_name = stock_name.upper()
