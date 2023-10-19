@@ -9,7 +9,7 @@ with st.sidebar:
     selected
 
 if selected=="Dự đoán":
-    st.title("fore")
+    st.title("Thông tin cổ phiếu")
 elif selected=="Bot":
     st.title("bot")
 else:
