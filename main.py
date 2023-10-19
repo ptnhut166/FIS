@@ -71,17 +71,19 @@ elif selected=="Dự đoán":
     is_in = stock_name in df.unique()
     if is_in is True:
         st.header("Thông tin tổng quan")
+
+        df = stock_historical_data(stock_name, "2022-01-01", "2023-10-10", "1D", "stock")
+        fig = candlestick_chart(df, ma_periods=[50,200], show_volume=False, reference_period=300, figure_size=(15, 8), 
+                        title=stock_name+' - Candlestick Chart with MA and Volume', x_label='Date', y_label='Price', 
+                        colors=('lightgray', 'gray'), reference_colors=('black', 'blue'))
+
+        fig.show()
     else:
         st.text("none")
         st.error("Xin nhập mã cổ phiếu chính xác")
         time.sleep(100000)
 
-    df = stock_historical_data(stock_name, "2022-01-01", "2023-10-10", "1D", "stock")
-    fig = candlestick_chart(df, ma_periods=[50,200], show_volume=False, reference_period=300, figure_size=(15, 8), 
-                        title=stock_name+' - Candlestick Chart with MA and Volume', x_label='Date', y_label='Price', 
-                        colors=('lightgray', 'gray'), reference_colors=('black', 'blue'))
-
-    fig.show()
+    
     
     
 
