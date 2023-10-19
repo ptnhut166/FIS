@@ -2,7 +2,6 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from vnstock import * 
 from vnstock.chart import *
-import matplotlib.pyplot as plt
 
 
 with st.sidebar:
