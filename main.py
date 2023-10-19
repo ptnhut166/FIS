@@ -93,6 +93,8 @@ elif selected=="Dự đoán":
     "What Algorithm do you want to use?",
     ("Linear regression", "Logistic regression", "ARIMA","GRU","LSTM", "RNN","SSA"))
     
+    n_years = st.slider('Years of prediction:', 1, 4)
+    period = n_years * 365
     
     
 
