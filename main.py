@@ -70,7 +70,7 @@ elif selected=="Dự đoán":
     df = df['ticker']
     is_in = stock_name in df.unique()
     if is_in is True:
-        st.header("Thông tin tổng quan")
+        st.header("Giá cổ phiếu")
 
         df_his = stock_historical_data(stock_name, "2022-01-01", "2023-10-10", "1D", "stock")
         st.line_chart(df_his["close"])
