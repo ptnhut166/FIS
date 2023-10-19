@@ -90,7 +90,7 @@ elif selected=="Dự đoán":
         time.sleep(100000)
 
     option=st.selectbox(
-    "What Algorithm do you want to use?",
+    "Chọn thuật toán?",
     ("Linear regression", "Logistic regression", "ARIMA","GRU","LSTM", "RNN","SSA"))
     
     n_days = st.slider('Số ngày dự đoán:', 1, 30)
