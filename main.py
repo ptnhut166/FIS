@@ -90,5 +90,6 @@ elif selected=="Dự đoán":
 
 elif selected=="Bot":
     st.title("Bot")
+    st.markdown("Trading bot with oanda")
 
 
