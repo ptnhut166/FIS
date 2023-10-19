@@ -63,10 +63,6 @@ if selected =="Thông tin":
 elif selected=="Dự đoán":
     st.title("Thông tin cổ phiếu")
 
-    option=st.selectbox(
-    "What Algorithm do you want to use?",
-    ("Linear regression", "Logistic regression", "ARIMA","GRU","LSTM", "RNN","SSA"))
-
     df = listing_companies()
     stock_name = st.text_input("Nhập tên cổ phiếu:")
     stock_name = stock_name.upper()
@@ -83,6 +79,9 @@ elif selected=="Dự đoán":
         st.error("Xin nhập mã cổ phiếu chính xác")
         time.sleep(100000)
 
+    option=st.selectbox(
+    "What Algorithm do you want to use?",
+    ("Linear regression", "Logistic regression", "ARIMA","GRU","LSTM", "RNN","SSA"))
     
     
     
