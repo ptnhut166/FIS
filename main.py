@@ -5,6 +5,8 @@ from vnstock.chart import *
 import datetime
 from datetime import date
 
+
+
 with st.sidebar:
     selected = option_menu("Lựa chọn", ["Thông tin", 'Dự đoán','Bot'], 
         icons=['info-square-fill', 'bar-chart-line-fill','reddit'], menu_icon="justify", default_index=1)
@@ -94,8 +96,9 @@ elif selected=="Dự đoán":
     ("Linear regression", "Logistic regression", "ARIMA","GRU","LSTM", "RNN","SSA"))
     
     n_days = st.slider('Số ngày dự đoán:', 1, 30)
-        
     
+    if option=="Linear Regression":
+        linear(df_his,n_days)
     
 
     
