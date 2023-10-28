@@ -9,3 +9,5 @@ streamlit
 streamlit_option_menu
 vnstock
 datetime
+streamlit-lightweight-charts
+bokeh
