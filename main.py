@@ -1,5 +1,7 @@
 # run.py
 import streamlit as st
+from langchain.llms import OpenAI
+from openai import OpenAI
 from streamlit_option_menu import option_menu
 import asyncio
 from app.features import is_stock_valid, display_company_info, display_stock_info, predict_stock, trading_bot
@@ -34,6 +36,7 @@ async def main():
             predict_stock()
         elif selected_position == 2:
             trading_bot()
+
 
 if __name__ == '__main__':
     asyncio.run(main())

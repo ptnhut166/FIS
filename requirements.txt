@@ -11,3 +11,5 @@ vnstock
 datetime
 streamlit-lightweight-charts
 bokeh
+openai
+langchain
