@@ -13,3 +13,4 @@ streamlit-lightweight-charts
 bokeh
 openai
 langchain
+datetime

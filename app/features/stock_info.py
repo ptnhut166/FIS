@@ -5,15 +5,17 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+from datetime import date
 import datetime
 import asyncio
+import json
 
 
 def get_stock_data(stock_name, start_date, end_date):
     df = stock_historical_data(stock_name, str(start_date), str(end_date), "1D", "stock")
     return df
 
-async def display_stock_info():
+def display_stock_info():
     st.title("Thông tin cổ phiếu")
 
     stock_name = st.text_input("Nhập tên cổ phiếu:")
@@ -23,7 +25,7 @@ async def display_stock_info():
         st.error("Xin nhập mã cổ phiếu chính xác")
         return
     
-    start_date = st.date_input("Nhập ngày bắt đầu", datetime.date(2020, 1, 1))
+    start_date = st.date_input("Nhập ngày bắt đầu", datetime.date(2023, 1, 1))
     end_date = date.today()
 
     df_his = get_stock_data(stock_name, start_date, end_date)
