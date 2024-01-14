@@ -58,8 +58,8 @@ def get_stock_data(stock_name):
     start_date = date.today() - timedelta(days=1)
     end_date = date.today()
     df = stock_historical_data(stock_name, str(start_date), str(end_date), "1D", "stock")
-    price = df['open']
-    return price
+    
+    return df
 
 
 # Kiểm tra nếu trang đã được làm mới
