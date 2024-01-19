@@ -4,6 +4,7 @@ from openai import OpenAI
 from vnstock import *
 from datetime import date
 from datetime import timedelta
+import plotly.express as px
 
 def trading_bot():
     st.title("Chat bot hỗ trợ chứng khoán")
@@ -27,14 +28,47 @@ def trading_bot():
             st.markdown(prompt)
 
         # Check if the user is asking for stock information
-        if "giá cổ phiếu" in prompt.lower():
-            stock_symbol = st.text_input("Nhập tên cổ phiếu:", key="stock_symbol", help="Enter stock symbol here")
+        if "giá cổ phiếu hiện tại" in prompt.lower():
+            stock_symbol = st.text_input("Nhập tên cổ phiếu:", key="stock_symbol1", help="Enter stock symbol here")
+            stock_symbol=stock_symbol.upper()
             if stock_symbol:
                 # Get stock information from yfinance
                 stock_price = get_stock_data(stock_symbol)
                 st.session_state.messages.append({"role": "assistant", "content": f"Stock Information for {stock_symbol}: {stock_price}"})
                 with st.chat_message("assistant"):
-                    st.markdown(f"Giá hiện tại của cổ phiếu {stock_symbol} là: {stock_price}")
+                    df=get_stock_data(stock_symbol)
+                    current_price = df['close'].tail(1).values[0]
+                    st.markdown(f"Giá hiện tại của cổ phiếu {stock_symbol} là: {current_price}")
+                    st.markdown("Giá cổ phiếu trong 30 ngày gần nhất:")
+                    st.dataframe(get_stock_data(stock_symbol))
+        if "biểu đồ giá cổ phiếu" in prompt.lower():
+            stock_symbol = st.text_input("Nhập tên cổ phiếu:", key="stock_symbol2", help="Enter stock symbol here")
+            stock_symbol=stock_symbol.upper()
+            if stock_symbol:
+                # Get stock information from yfinance
+                stock_price = get_stock_data(stock_symbol)
+                st.session_state.messages.append({"role": "assistant", "content": f"Stock Information for {stock_symbol}: {stock_price}"})
+                with st.chat_message("assistant"):
+                    df=get_stock_data(stock_symbol)
+                    st.markdown("Giá cổ phiếu trong 30 ngày gần nhất:")
+                    df['time'] = pd.to_datetime(df['time'], format="%Y-%m-%d")
+                    fig = px.line(df, x="time", y="close", labels={'time': "Ngày thực tế", "close": "Giá đóng cửa"})
+                    st.plotly_chart(fig)
+        if "thông tin doanh nghiệp" in prompt.lower():
+            stock_symbol = st.text_input("Nhập tên cổ phiếu:", key="stock_symbol3", help="Enter stock symbol here")
+            stock_symbol=stock_symbol.upper()
+            if stock_symbol:
+                # Get stock information from yfinance
+                stock_price = get_stock_data(stock_symbol)
+                st.session_state.messages.append({"role": "assistant", "content": f"Stock Information for {stock_symbol}: {stock_price}"})
+                with st.chat_message("assistant"):
+                        df_cp = company_profile(stock_symbol)
+                        pro = df_cp["companyProfile"].iloc[0]
+                        name = df_cp["companyName"].iloc[0]
+                        st.title(name)
+                        st.markdown(pro)
+
+
 
         else:
             with st.chat_message("assistant"):
@@ -59,7 +93,6 @@ def get_stock_data(stock_name):
     end_date = date.today()
     df = stock_historical_data(stock_name, str(start_date), str(end_date), "1D", "stock")
     return df
-
 
 # Kiểm tra nếu trang đã được làm mới
 if st.button("Refresh"):
