@@ -6,6 +6,7 @@ from streamlit_option_menu import option_menu
 import asyncio
 from app.features import is_stock_valid, display_company_info, display_stock_info, predict_stock, trading_bot
 
+
 options = ["Tra cứu doanh nghiệp", 'Hướng về tương lai', 'Hỗ trợ chứng khoán']
 
 option_to_position = {}

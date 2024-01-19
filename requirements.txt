@@ -14,3 +14,8 @@ bokeh
 openai
 langchain
 datetime
+streamlit-lightweight-charts
+matplotlib
+scikit-learn
+pmdarima
+keras-models

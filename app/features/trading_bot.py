@@ -53,12 +53,11 @@ def trading_bot():
                 message_placeholder.markdown(full_response)
             st.session_state.messages.append({"role": "assistant", "content": full_response})
 
-# Hàm để lấy thông tin tài chính từ yfinance
+# Hàm để lấy thông tin tài chính từ vnstock
 def get_stock_data(stock_name):
-    start_date = date.today() - timedelta(days=1)
+    start_date = date.today() - timedelta(days=30)
     end_date = date.today()
     df = stock_historical_data(stock_name, str(start_date), str(end_date), "1D", "stock")
-    
     return df
 
 

@@ -9,7 +9,9 @@ from datetime import date
 import datetime
 import asyncio
 import json
-
+from streamlit_lightweight_charts import renderLightweightCharts
+import streamlit_lightweight_charts.dataSamples as data
+from app.features.stock_prediction import predict_stock
 
 def get_stock_data(stock_name, start_date, end_date):
     df = stock_historical_data(stock_name, str(start_date), str(end_date), "1D", "stock")
@@ -146,7 +148,5 @@ def display_stock_info():
         }
     ], 'priceAndVolume')
 
-    # 
-    n_days = st.slider('Số ngày dự đoán:', 1, 30)
-    prediction = predict_stock_price(stock_name, n_days)
-    st.line_chart(prediction["close"])
+
+    
